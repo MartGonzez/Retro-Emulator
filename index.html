@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroZone | Emulador Web Retro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-grid"></div>
+
+    <header>
+        <div class="logo-badge">
+            <span class="dot pulse"></span> ONLINE EMULATOR
+        </div>
+        <h1><span class="gradient-text">RETRO</span>PLAY</h1>
+        <p class="tagline">Carga tu ROM y juega al instante sin descargas ni instalación</p>
+    </header>
+
+    <main>
+        <!-- Selector de Consola -->
+        <div class="glass-card selector-card" id="selector-wrapper">
+            <label for="system-select">
+                <span class="icon">🎮</span> Consola:
+            </label>
+            <div class="custom-select">
+                <select id="system-select">
+                    <option value="gba">Game Boy Advance (GBA)</option>
+                    <option value="gb">Game Boy Color / Classic</option>
+                    <option value="nes">Nintendo Entertainment System (NES)</option>
+                    <option value="snes">Super Nintendo (SNES)</option>
+                    <option value="segaMD">Sega Genesis / Mega Drive</option>
+                    <option value="n64">Nintendo 64 (N64)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Zona para Subir Archivo -->
+        <div class="glass-card upload-box" id="upload-box">
+            <input type="file" id="rom-file" accept=".gba,.gb,.gbc,.nes,.sfc,.smc,.gen,.bin,.z64,.n64" hidden>
+            <div class="upload-content">
+                <div class="icon-wrapper">
+                    <span class="upload-icon">⚡</span>
+                </div>
+                <h2>Arrastra tu archivo ROM aquí</h2>
+                <p>Soporta extensiones <code>.gba</code>, <code>.nes</code>, <code>.sfc</code>, <code>.z64</code> y más</p>
+                <button id="select-btn" class="glow-btn">
+                    <span>Seleccionar ROM</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Área del Juego y Panel Lateral -->
+        <div id="game-workspace" class="hidden">
+            
+            <div class="emulator-container glass-card">
+                <div class="emulator-screen" id="game"></div>
+            </div>
+
+            <aside class="glass-card controls-panel">
+                <div class="panel-header">
+                    <h3>🕹️ Controles</h3>
+                    <span class="badge">Teclado</span>
+                </div>
+
+                <div class="controls-scroll">
+                    <ul class="controls-list" id="controls-list">
+                        <li><span class="key">D-Pad / Flechas</span> <span>Moverse</span></li>
+                        <li><span class="key">Z</span> <span>Botón A</span></li>
+                        <li><span class="key">X</span> <span>Botón B</span></li>
+                        <li><span class="key">A</span> <span>Botón L</span></li>
+                        <li><span class="key">S</span> <span>Botón R</span></li>
+                        <li><span class="key">Enter</span> <span>START</span></li>
+                        <li><span class="key">Shift</span> <span>SELECT</span></li>
+                    </ul>
+                </div>
+
+                <div class="panel-footer">
+                    <div class="tip-box">
+                        <span class="tip-icon">💡</span>
+                        <p>Haz clic en la <strong>⚙️ tuerca</strong> abajo en el juego para personalizar las teclas o usar un Gamepad.</p>
+                    </div>
+                    <button id="exit-btn" class="exit-btn">
+                        <span>Cerrar Juego</span>
+                    </button>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>RetroPlay — Tus partidas se guardan automáticamente en tu navegador local.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
